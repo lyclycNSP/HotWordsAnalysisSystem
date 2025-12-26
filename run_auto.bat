@@ -38,12 +38,12 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 :: 5. 启动主程序
 echo ========================================================
 echo        环境准备完毕，系统即将启动！
-echo        模式: 交互模式 (Interactive)
+echo        模式: 自动模式 (Auto)
 echo        提示: 程序运行结束后将自动弹出 Web 图表
 echo ========================================================
 
-:: 启动 main.py，参数设为 interactive
-python main.py --mode interactive
+:: 启动 main.py，参数设为 auto
+python main.py --mode auto -w 600
 
 :: 如果程序异常退出，暂停一下让助教看到错误信息
 if %errorlevel% neq 0 (
