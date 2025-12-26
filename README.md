@@ -69,13 +69,16 @@ python main.py --mode auto
 _注：启动后会自动打开浏览器，若未打开请访问终端显示的 Local URL (如 _[http://localhost:8501](http://localhost:8501)_)_
 
 ## 运行单元测试
-验证核心算法的正确性：
+> 注意：确保运行脚本前运行过run_auto.bat或run_interactive.bat，确保环境已提前构建
 ### 方式一：运行test.bat单元测试脚本
 
 ### 方式二：命令行
 ```bash
+# 激活虚拟环境
 venv\Scripts\activate.bat # cmd
 .\venv\Scripts\activate # powershell
+
+# 进行单元测试
 python -m pytest
 ```
 
