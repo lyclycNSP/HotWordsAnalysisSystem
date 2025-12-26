@@ -1,6 +1,6 @@
 # 基于滑动窗口的热词统计与分析系统
 ## 项目简介
-本项目实现了一个针对流式文本数据的实时热词统计系统。基于**双端队列、哈希表和小根堆**的数据结构，实现了 $ O(1) $ 复杂度的实时词频更新与$ O(M \log K) $复杂度（M为哈希表中不同词汇数）的 Top-K 查询。系统支持自动读入文本流和命令行交互，并基于 Web 进行可视化展示。
+本项目实现了一个针对流式文本数据的实时热词统计系统。基于**双端队列、哈希表和小根堆**的数据结构，实现了 `O(1)` 复杂度的实时词频更新与 `O(M*log K)` 复杂度（M为哈希表中不同词汇数）的 Top-K 查询。系统支持自动读入文本流和命令行交互，并基于 Web 进行可视化展示。
 
 ---
 
@@ -70,9 +70,13 @@ _注：启动后会自动打开浏览器，若未打开请访问终端显示的 
 
 ## 运行单元测试
 验证核心算法的正确性：
+### 方式一：运行test.bat单元测试脚本
 
+### 方式二：命令行
 ```bash
-pytest tests/
+venv\Scripts\activate.bat # cmd
+.\venv\Scripts\activate # powershell
+python -m pytest
 ```
 
 ## 项目目录结构
@@ -104,7 +108,8 @@ HotWordsAnalysisSystem/
 ├── performance_report.png       # 性能测试图表                
 ├── requirements.txt             # 依赖列表
 ├── run_auto.bat                 # 自动模式运行脚本
-├── run_interactive.bat          # 自动模式运行脚本
+├── run_interactive.bat          # 交互模式运行脚本
+├── test.bat                     # 单元测试运行脚本
 └── README.md                    # 操作说明
 ```
 
