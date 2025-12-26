@@ -7,7 +7,7 @@ def main():
     st.title("热词统计与分析系统 - 查询历史回溯")
     st.markdown("通过滑动下方滑块，查看不同查询时刻的 Top-K 热词分布。")
 
-    # 1. 加载数据
+    # 加载数据
     try:
         with open("data/results.json", "r", encoding="utf-8") as f:
             snapshots = json.load(f) 

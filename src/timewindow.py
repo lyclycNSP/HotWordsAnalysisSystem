@@ -51,12 +51,13 @@ class TimeWindow:
         # 每次添加新词前先将超出窗口时间的词语删除
         self.del_expired_words(timestamp)
 
-        # 保证时间戳合法
+        # 保证时间戳合法，合法指的是当前词汇进入窗口的时间不得早于上一行词汇进入窗口的时间，否则认为是错误数据
         if self.is_valid_time(timestamp):
             self.window.append((timestamp, word))
             self.hash[word] += 1
     
     def get_top_k(self, k):
         """求出当前的topK热词"""
+        # 出现次数前添加负号使得出现次数和字典序都能按升序排但是结果正确
         return heapq.nsmallest(k, self.hash.items(), key=lambda x: (-x[1], x[0]))
 

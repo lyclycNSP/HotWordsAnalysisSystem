@@ -41,7 +41,7 @@ class ResultCollector:
         return width
     
     def print_ascii_chart(self, timestamp, k, topk_list):
-        show_time = self.format_time(timestamp) # 假设你有这个时间格式化函数
+        show_time = self.format_time(timestamp)
         
         print(f"\n=== [Time: {show_time}] ===")
         print(f"=== Top {k} Hot Words ===")
@@ -51,8 +51,8 @@ class ResultCollector:
             print("==========================================\n")
             return
 
-        # 1. 动态计算当前这一批词里，最长的那个词的视觉宽度是多少
-        # 这样可以保证无论是 2个字的词 还是 10个字的词，都能完美自适应对齐
+        # 计算当前这一批词里，最长的那个词的视觉宽度是多少
+        # 这样可以保证无论是2个字的词还是10个字的词，自适应对齐
         max_label_width = 0
         for word, _ in topk_list:
             w_width = self.get_display_width(str(word))
@@ -62,7 +62,7 @@ class ResultCollector:
         # 增加一点缓冲空间，比如最少给 8 的宽度，避免太窄
         max_label_width = max(max_label_width, 8)
 
-        # 2. 准备画柱状图的参数
+        # 准备画柱状图的参数
         max_count = topk_list[0][1]
         max_bar_len = 50 
 
@@ -70,7 +70,6 @@ class ResultCollector:
             # 计算当前词的宽度
             current_width = self.get_display_width(str(word))
             
-            # 核心逻辑：我们需要补多少个空格？
             # 补的空格数 = 目标总宽度 - 当前词的视觉宽度
             padding_len = max_label_width - current_width
             padding = " " * padding_len
@@ -89,7 +88,7 @@ class ResultCollector:
         print("==========================================\n")
     
     def save_to_json(self, filepath="data/results.json"):
-        # 确保目录存在 (如果没有 data 文件夹，自动创建)
+        # 确保目录存在，如果没有 data 文件夹，将自动创建
         
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
 

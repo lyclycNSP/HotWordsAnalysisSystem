@@ -4,7 +4,7 @@ import jieba
 class TextProcessor:
     def __init__(self):
         self.stopwords = set()
-
+        # 读取停用词表
         with open("data/stopwords.txt", "r", encoding="utf-8") as f:
             for line in f:
                 self.stopwords.add(line.strip())
