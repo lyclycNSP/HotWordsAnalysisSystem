@@ -17,7 +17,7 @@
     - **altair** : 用于实现多彩柱状图
         * 版本：6.0.0
         * 许可证：BSD 3-Clause
-    - **pytest **: 用于进行单元测试
+    - **pytest**: 用于进行单元测试
         * 版本：9.0.2
         * 许可证：MIT
 
@@ -26,7 +26,7 @@
 ## 快速开始
 ### 克隆仓库或解压文件
 ### 进入 data 文件夹，修改 input_auto.txt 或 input_interactive.txt
-    - **input_auto.txt **的输入数据需按照 `[H:MM:SS] <文本数据>` 的格式提供，每行一条文本数据。在需要查询的位置插入一行`[ACTION] QUERY K=<整数>`。如：
++ **input_auto.txt** 的输入数据需按照 `[H:MM:SS] <文本数据>` 的格式提供，每行一条文本数据。在需要查询的位置插入一行`[ACTION] QUERY K=<整数>`。如：
 
 ```plain
 [0:04:27] 你们三兄弟长的一点都不一样
@@ -34,7 +34,7 @@
 [0:04:27] 诸葛瑾确实是神级管家！其他能力就一般了
 ```
 
-    - **input_interactive.txt **的输入的文本数据同样按照 `[H:MM:SS] <文本数据>` 的格式提供，每行一条文本数据。但不再需要在文件中提供 `[ACTION] QUERY K=<整数>` 指令。用户可以稍后在终端交互窗口处手动输入时间点和窗口大小进行查询
++ **input_interactive.txt** 的输入的文本数据同样按照 `[H:MM:SS] <文本数据>` 的格式提供，每行一条文本数据。但不再需要在文件中提供 `[ACTION] QUERY K=<整数>` 指令。用户可以稍后在终端交互窗口处手动输入时间点和窗口大小进行查询
 
 ### 运行 run_auto.bat 或 run_interactive.bat（涵盖python依赖库的安装）
 注：linux环境需安装python依赖库：
@@ -83,6 +83,7 @@ HotWordsAnalysisSystem/
 │   ├── input_interactive.txt     
 │   ├── stopwords.txt             # 停用词表
 │   └── results.json              # 查询结果保存位置
+├── docs                          # 文档报告
 ├── src/                          # 实现源码
 │   ├── __init__.py 
 │   ├── datapacket.py         
@@ -99,17 +100,22 @@ HotWordsAnalysisSystem/
 │   ├── generate_charts.py
 │   ├── test_processor.py
 │   └── test_timewindow.py         
-├── main.py                  # 主程序
-├── performance_report.png   # 性能测试图表                
-├── requirements.txt         # 依赖列表
-└── README.md                # 操作说明
+├── main.py                      # 主程序
+├── performance_report.png       # 性能测试图表                
+├── requirements.txt             # 依赖列表
+├── run_auto.bat                 # 自动模式运行脚本
+├── run_interactive.bat          # 自动模式运行脚本
+└── README.md                    # 操作说明
 ```
 
 ## 特性说明
 + **文本清洗**: 集成 Jieba 分词，支持停用词过滤与自定义词典。
-+ **<font style="color:rgb(31, 35, 40);">滑动时间窗口</font>**<font style="color:rgb(31, 35, 40);">：采用高效的时间窗口算法，实时追踪指定时间段内的词频变化</font>
-+ **<font style="color:rgb(31, 35, 40);">TopK 排行</font>**<font style="color:rgb(31, 35, 40);">：高效的词频统计和排序算法，快速获取指定数量的高频词汇</font>
++ **滑动时间窗口**：采用高效的时间窗口算法，实时追踪指定时间段内的词频变化
++ **TopK 排行** ：高效的词频统计和排序算法，快速获取指定数量的高频词汇
 + **可视化**: 提供时间轴滑块，可交互式查看不同时刻的热词分布趋势。
-+ **<font style="color:rgb(31, 35, 40);">分层架构设计</font>**<font style="color:rgb(31, 35, 40);">：采用模块化设计，时间窗口管理器、词频排名管理器各司其职</font>
-+ **<font style="color:rgb(31, 35, 40);">跨平台支持</font>**<font style="color:rgb(31, 35, 40);">：支持 Linux、Windows 等多平台编译运行</font>
-+ **<font style="color:rgb(31, 35, 40);">测试保障</font>**<font style="color:rgb(31, 35, 40);">：使用 pytest 测试框架，确保代码质量和稳定性</font>
++ **分层架构设计** ：采用模块化设计，时间窗口管理器、词频排名管理器各司其职
++ **跨平台支持**：支持 Linux、Windows 等多平台编译运行
++ **测试保障**：使用 pytest 测试框架，确保代码质量和稳定性
+
+
+
