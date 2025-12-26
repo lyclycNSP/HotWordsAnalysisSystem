@@ -68,6 +68,8 @@ python main.py --mode auto
 
 _注：启动后会自动打开浏览器，若未打开请访问终端显示的 Local URL (如 _[http://localhost:8501](http://localhost:8501)_)_
 
+---
+
 ## 运行单元测试
 > 注意：确保运行脚本前运行过run_auto.bat或run_interactive.bat，确保环境已提前构建
 ### 方式一：运行test.bat单元测试脚本
@@ -81,6 +83,8 @@ venv\Scripts\activate.bat # cmd
 # 进行单元测试
 python -m pytest
 ```
+
+---
 
 ## 项目目录结构
 ```latex
@@ -115,6 +119,7 @@ HotWordsAnalysisSystem/
 ├── test.bat                     # 单元测试运行脚本
 └── README.md                    # 操作说明
 ```
+---
 
 ## 特性说明
 + **文本清洗**: 集成 Jieba 分词，支持停用词过滤与自定义词典。
